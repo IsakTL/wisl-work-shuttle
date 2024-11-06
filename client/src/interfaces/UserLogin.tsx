@@ -1,5 +1,7 @@
 // Interface definition for UserLogin
 export interface UserLogin {
-  username: string | null;  // Property for storing username, nullable
+  firstName: string | null;  // Property for storing username, nullable
+  lastName: string | null;
+  employeeID: string | null;
   password: string | null;  // Property for storing password, nullable
 }
