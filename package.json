@@ -13,6 +13,6 @@
   "author": "WISL",
   "license": "MIT",
   "dependencies": {
-    
+    "react-bootstrap": "^2.10.5"
   }
 }
