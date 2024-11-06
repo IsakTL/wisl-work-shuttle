@@ -36,7 +36,7 @@ const Login = () => {
   return (
     <div className='form-container'>
       <form className='form login-form' onSubmit={handleSubmit}>
-        <h1>Login</h1>
+        <h1>Welcome WISL Workers</h1>
         {/* Username input field */}
         <div className="form-group">
           <label>Username</label>
