@@ -3,8 +3,9 @@ import bcrypt from 'bcrypt';
 
 interface UserAttributes {
   id: number;
-  username: string;
-  email: string;
+  firstName: string;
+  lastName: string;
+  employeeID: string
   password: string;
 }
 
@@ -14,9 +15,10 @@ export class User
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
 {
-  public id!: number;
-  public username!: string;
-  public email!: string;
+  public id!: number
+  public firstName!: string
+  public lastName!: string;
+  public employeeID!: string;
   public password!: string;
 
   public readonly createdAt!: Date;
@@ -37,11 +39,15 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         autoIncrement: true,
         primaryKey: true,
       },
-      username: {
+      firstName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      email: {
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      employeeID: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -51,7 +57,7 @@ export function UserFactory(sequelize: Sequelize): typeof User {
       },
     },
     {
-      tableName: 'users',
+      tableName: 'employees',
       sequelize,
       hooks: {
         beforeCreate: async (user: User) => {
