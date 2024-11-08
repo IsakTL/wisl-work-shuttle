@@ -27,16 +27,12 @@ CREATE TABLE warehouses (
     -- is city name necessary here?
 )
 
-INSERT INTO warehouses (lon, lat)
-VALUES (44.98439, -93.26785);
+-- INSERT INTO warehouses (lon, lat)
+-- VALUES (44.98439, -93.26785);
 -- Corner of First Ave and First St in Minneapolis
 
-INSERT INTO pickups (lon, lat, warehouseID)
-VALUES (44.94000, -93.08844, 1);
+-- INSERT INTO pickups (lon, lat, warehouseID)
+-- VALUES (44.94000, -93.08844, 1);
 -- Corner of Wabasha and Harriet Island Blvd in St. Paul
 
-INSERT INTO workers (firstName, lastName, pickupID)
-VALUES ("Joshua", "Woods", 1),
-("Sameer", "Idris", 1),
-("River", "Stephenson", 1),
-("Isak", "Larsson", 1);
+

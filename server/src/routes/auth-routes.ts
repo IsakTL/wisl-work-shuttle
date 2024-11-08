@@ -11,7 +11,7 @@ console.log(req.body)
   const user = await User.findOne({
     where: { username: username.trim() },
 
-  });
+  }); 
   console.log(user)
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed!' });
