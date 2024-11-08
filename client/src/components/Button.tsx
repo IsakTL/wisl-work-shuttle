@@ -1,4 +1,4 @@
-// Doesn't work on non-TS file?
+// API test button
 type ButtonProps = {
     onResults: (data: any) => void;
 };
