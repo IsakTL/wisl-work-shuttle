@@ -2,16 +2,22 @@ import { UserLogin } from "../interfaces/UserLogin";  // Import the UserLogin in
 
 // Function to send a POST request to the '/auth/login' endpoint with user login information
 const login = async (userInfo: UserLogin) => {
+  console.log(userInfo)
   try {
     // Send a POST request to '/auth/login' with user login information in JSON format
     const response = await fetch('/auth/login', {
+      
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userInfo)
-    });
+    }
+  );
 
+  
+  const data = await response.json();
+  console.log('authData', data)
     // Throw error if response status is not OK (200-299)
     if (!response.ok) {
       const errorData = await response.json(); // Parse error response as JSON
@@ -19,8 +25,10 @@ const login = async (userInfo: UserLogin) => {
     }
 
     // Parse the response body as JSON
-    const data = await response.json();
-
+    // if(response.ok){
+    //   console.log('response', response.json()); //first consume it in console.log
+    //  return response.json();
+    // }
     return data;  // Return the data received from the server
   } catch (err) {
     console.log('Error from user login: ', err);  // Log any errors that occur during fetch

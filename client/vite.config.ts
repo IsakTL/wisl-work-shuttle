@@ -18,5 +18,5 @@ export default defineConfig({
       },
     },
   },
-  envDir: "../server/"
+  // envDir: "../server/"
 });
