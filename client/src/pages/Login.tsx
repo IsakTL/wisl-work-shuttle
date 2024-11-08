@@ -33,7 +33,9 @@ const Login = () => {
       
       console.log(data)
       // If login is successful, call Auth.login to store the token in localStorage
+      // TODO: save token to local storage
       Auth.login(data.token);
+      localStorage.setItem('authToken', data.token)
     } catch (err) {
       // alert("Failed to login"); // Log any errors that occur during login
     }

@@ -25,7 +25,7 @@ export const ShiftPage: React.FC<ShiftPageProps> = () => {
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
-      navigate('/login');
+      navigate('/');
     }
     fetchShifts();
   }, [navigate]);
