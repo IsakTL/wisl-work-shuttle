@@ -4,12 +4,14 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const login = async (req: Request, res: Response) => {
+
   const { username, password } = req.body;
 console.log(req.body)
 
   const user = await User.findOne({
     where: { username: username.trim() },
-  });
+
+  }); 
   console.log(user)
   if (!user) {
     return res.status(401).json({ message: 'Authentication failed!' });
