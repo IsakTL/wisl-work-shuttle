@@ -17,15 +17,18 @@ const login = async (userInfo: UserLogin) => {
 
   
   const data = await response.json();
-  console.log(data)
+  console.log('authData', data)
     // Throw error if response status is not OK (200-299)
-    // if (!response.ok) {
-    //   const errorData = await response.json(); // Parse error response as JSON
-    //   throw new Error(`Error: ${errorData.message}`); // Throw a detailed error message    
-    // }
+    if (!response.ok) {
+      const errorData = await response.json(); // Parse error response as JSON
+      throw new Error(`Error: ${errorData.message}`); // Throw a detailed error message    
+    }
 
     // Parse the response body as JSON
-
+    // if(response.ok){
+    //   console.log('response', response.json()); //first consume it in console.log
+    //  return response.json();
+    // }
     return data;  // Return the data received from the server
   } catch (err) {
     console.log('Error from user login: ', err);  // Log any errors that occur during fetch
