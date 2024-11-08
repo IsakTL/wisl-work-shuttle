@@ -1,4 +1,8 @@
+
 const forceDatabaseRefresh = false;
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 import express from 'express';
 import sequelize from './config/connection.js';
@@ -13,7 +17,7 @@ app.use(express.static('../client/dist'));
 app.use(express.json());
 app.use(routes);
 
-sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
+sequelize.sync({force: forceDatabaseRefresh}).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });

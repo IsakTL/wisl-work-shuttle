@@ -3,25 +3,27 @@ import { User } from '../models/index.js';
 export const seedUsers = async () => {
   await User.bulkCreate(
     [
-      { id: 1, username: 'JoshuaWoods', email: 'joshuawoods@guru.com', password: 'password' },
-      {
-        id: 1, 
-        username: 'SameerIdris',
-        email: 'sameeridris@scribe.com',
-        password: 'password',
+
+      { 
+       username: 'jonred6190',
+       password: 'password1'
       },
       {
-        id: 1, 
-        username: 'RiverStephenson',
-        email: 'riverstephenson@comet.com',
-        password: 'password',
+        username: 'maryTnight',
+        password: 'password2',
       },
       {
-        id: 1,
-        username:'IsakLarsson',
-        email: 'isaklarsson@pluto.com', password: 'password',
+        username: 'riverstephenson',
+        password: 'password3',
       },
+      {
+        username: 'glennPowwow',
+        password: 'password4',
+      },
+      {
+        username: 'bigBabyG',
+        password: 'password5',
     ],
     { individualHooks: true }
-  );
+  
 };

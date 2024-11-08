@@ -1,10 +1,9 @@
-import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
+import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 import bcrypt from 'bcrypt';
 
 interface UserAttributes {
   id: number;
   username: string;
-  email: string;
   password: string;
 }
 
@@ -16,7 +15,6 @@ export class User
 {
   public id!: number;
   public username!: string;
-  public email!: string;
   public password!: string;
 
   public readonly createdAt!: Date;
@@ -30,6 +28,7 @@ export class User
 }
 
 export function UserFactory(sequelize: Sequelize): typeof User {
+  console.log('hello')
   User.init(
     {
       id: {
@@ -41,16 +40,13 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
     },
     {
+      modelName: 'User',
       tableName: 'users',
       sequelize,
       hooks: {
