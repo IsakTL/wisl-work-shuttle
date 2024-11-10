@@ -1012,7 +1012,7 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: navy;
   color: #d9e9e8;
 }
 
@@ -1149,7 +1149,7 @@ form .form-input {
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;
-  border: 1px solid #484848;
+  border: 5px solid navy;
   border-radius: 0.3rem;
 }
 
