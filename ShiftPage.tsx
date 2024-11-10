@@ -8,6 +8,8 @@ interface Employee {
   employeeId: string;
 }
 
+type ShiftType = 'morning' | 'evening' | 'no-shift' | null;
+
 const SHIFT_CONSTRAINTS = {
   morning: {
     startTime: '07:00',
@@ -29,7 +31,6 @@ const SHIFT_CONSTRAINTS = {
   }
 };
 
-// Updated employee list with the specified names
 const MOCK_EMPLOYEES: Employee[] = [
   { id: '1', name: 'Joshua Woods', employeeId: 'EMP001' },
   { id: '2', name: 'Isak Larsson', employeeId: 'EMP002' },
@@ -47,19 +48,22 @@ const formatTime = (time: string): string => {
 
 export const ShiftPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedShiftType, setSelectedShiftType] = useState<'morning' | 'evening' | null>(null);
+  const [selectedShiftType, setSelectedShiftType] = useState<ShiftType>(null);
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [noShiftReason, setNoShiftReason] = useState<string>('');
 
   useEffect(() => {
-    // Set the mock employees data
     setEmployees(MOCK_EMPLOYEES);
   }, []);
 
-  const handleShiftSelect = (shiftType: 'morning' | 'evening') => {
+  const handleShiftSelect = (shiftType: ShiftType) => {
     setSelectedShiftType(shiftType);
+    if (shiftType !== 'no-shift') {
+      setNoShiftReason('');
+    }
   };
 
   const handleDateSelect = (date: string) => {
@@ -73,12 +77,15 @@ export const ShiftPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedShiftType && selectedDate && selectedEmployee) {
+    if (selectedEmployee && selectedDate && selectedShiftType) {
       const shiftData = {
         type: selectedShiftType,
         date: selectedDate,
         employee: selectedEmployee,
-        times: SHIFT_CONSTRAINTS[selectedShiftType]
+        ...(selectedShiftType === 'no-shift' 
+          ? { reason: noShiftReason }
+          : { times: SHIFT_CONSTRAINTS[selectedShiftType] }
+        )
       };
       console.log('Selected shift:', shiftData);
       navigate('/confirmation', { state: { shiftData } });
@@ -97,6 +104,9 @@ export const ShiftPage: React.FC = () => {
     employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     employee.employeeId.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const isSubmitDisabled = !selectedEmployee || !selectedDate || !selectedShiftType || 
+    (selectedShiftType === 'no-shift' && !noShiftReason.trim());
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -167,7 +177,7 @@ export const ShiftPage: React.FC = () => {
         </div>
 
         {/* Shift Options */}
-        <div className="grid md:grid-cols-2 gap-4 mb-6">
+        <div className="grid md:grid-cols-3 gap-4 mb-6">
           {/* Morning Shift */}
           <div
             className={`bg-white p-4 rounded-lg shadow-sm cursor-pointer border-2 
@@ -231,6 +241,43 @@ export const ShiftPage: React.FC = () => {
               />
             </div>
           </div>
+
+          {/* No Shift Option */}
+          <div
+            className={`bg-white p-4 rounded-lg shadow-sm cursor-pointer border-2 
+              ${selectedShiftType === 'no-shift' ? 'border-red-500' : 'border-transparent'}`}
+            onClick={() => handleShiftSelect('no-shift')}
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-red-600">No Shift</h3>
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-600">Select this option if you do not want to take any shift for the selected date.</p>
+                  {selectedShiftType === 'no-shift' && (
+                    <div className="mt-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Reason (Required)
+                      </label>
+                      <textarea
+                        value={noShiftReason}
+                        onChange={(e) => setNoShiftReason(e.target.value)}
+                        placeholder="Please provide a reason..."
+                        className="w-full border rounded-md p-2 text-sm"
+                        rows={3}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+              <input
+                type="radio"
+                name="shiftType"
+                checked={selectedShiftType === 'no-shift'}
+                onChange={() => handleShiftSelect('no-shift')}
+                className="mt-1"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Selection Summary */}
@@ -248,14 +295,23 @@ export const ShiftPage: React.FC = () => {
                 <p className="font-medium">{selectedDate}</p>
               </div>
               <div>
-                <p className="text-sm text-gray-500">Selected Shift</p>
-                <p className="font-medium capitalize">{selectedShiftType} Shift</p>
+                <p className="text-sm text-gray-500">Selection</p>
+                <p className="font-medium capitalize">
+                  {selectedShiftType === 'no-shift' ? 'No Shift' : `${selectedShiftType} Shift`}
+                </p>
+                {selectedShiftType === 'no-shift' && noShiftReason && (
+                  <p className="text-sm text-gray-500 mt-1">Reason: {noShiftReason}</p>
+                )}
               </div>
             </div>
             <div className="flex gap-4">
               <button
                 onClick={handleSubmit}
-                className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+                disabled={isSubmitDisabled}
+                className={`flex-1 py-2 px-4 rounded transition-colors
+                  ${isSubmitDisabled 
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                    : 'bg-blue-500 text-white hover:bg-blue-600'}`}
               >
                 Confirm Selection
               </button>
