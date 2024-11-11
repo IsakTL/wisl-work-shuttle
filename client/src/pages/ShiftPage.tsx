@@ -54,6 +54,7 @@ export const ShiftPage: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [noShiftReason, setNoShiftReason] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setEmployees(MOCK_EMPLOYEES);
@@ -75,29 +76,43 @@ export const ShiftPage: React.FC = () => {
     setSelectedEmployee(employee || null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleClearData = () => {
+    setSelectedShiftType(null);
+    setSelectedDate('');
+    setSelectedEmployee(null);
+    setSearchTerm('');
+    setNoShiftReason('');
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedEmployee && selectedDate && selectedShiftType) {
-      const shiftData = {
-        type: selectedShiftType,
-        date: selectedDate,
-        employee: selectedEmployee,
-        ...(selectedShiftType === 'no-shift' 
-          ? { reason: noShiftReason }
-          : { times: SHIFT_CONSTRAINTS[selectedShiftType] }
-        )
-      };
-      console.log('Selected shift:', shiftData);
-      navigate('/confirmation', { state: { shiftData } });
+      setIsSubmitting(true);
+      try {
+        const shiftData = {
+          type: selectedShiftType,
+          date: selectedDate,
+          employee: selectedEmployee,
+          ...(selectedShiftType === 'no-shift' 
+            ? { reason: noShiftReason }
+            : { times: SHIFT_CONSTRAINTS[selectedShiftType] }
+          )
+        };
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('Shift data submitted:', shiftData);
+        // Change this line from '/confirmation' to '/weather
+        navigate('/weather', { state: { shiftData } }); // <-- This is the only line you need to change
+      } catch (error) {
+        console.error('Error submitting shift:', error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
   const handleBack = () => {
     navigate(-1);
-  };
-
-  const handleCancel = () => {
-    navigate('/dashboard');
   };
 
   const filteredEmployees = employees.filter(employee =>
@@ -106,7 +121,7 @@ export const ShiftPage: React.FC = () => {
   );
 
   const isSubmitDisabled = !selectedEmployee || !selectedDate || !selectedShiftType || 
-    (selectedShiftType === 'no-shift' && !noShiftReason.trim());
+    (selectedShiftType === 'no-shift' && !noShiftReason.trim()) || isSubmitting;
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -125,7 +140,6 @@ export const ShiftPage: React.FC = () => {
         <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
           <h2 className="text-lg font-semibold mb-2">Select Employee</h2>
           <div className="space-y-4">
-            {/* Search Input */}
             <input
               type="text"
               placeholder="Search by name or employee ID..."
@@ -134,7 +148,6 @@ export const ShiftPage: React.FC = () => {
               className="border p-2 rounded w-full mb-4"
             />
             
-            {/* Employee List */}
             <div className="max-h-48 overflow-y-auto border rounded">
               {filteredEmployees.map((employee) => (
                 <div
@@ -284,7 +297,7 @@ export const ShiftPage: React.FC = () => {
         {selectedEmployee && selectedShiftType && selectedDate && (
           <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
             <h2 className="text-lg font-semibold mb-4">Your Selection</h2>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-3 gap-4">
               <div>
                 <p className="text-sm text-gray-500">Employee</p>
                 <p className="font-medium">{selectedEmployee.name}</p>
@@ -304,26 +317,38 @@ export const ShiftPage: React.FC = () => {
                 )}
               </div>
             </div>
-            <div className="flex gap-4">
-              <button
-                onClick={handleSubmit}
-                disabled={isSubmitDisabled}
-                className={`flex-1 py-2 px-4 rounded transition-colors
-                  ${isSubmitDisabled 
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : 'bg-blue-500 text-white hover:bg-blue-600'}`}
-              >
-                Confirm Selection
-              </button>
-              <button
-                onClick={handleCancel}
-                className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded hover:bg-gray-400 transition-colors"
-              >
-                Cancel
-              </button>
-            </div>
           </div>
         )}
+
+        {/* Action Buttons */}
+        <div className="flex gap-4 justify-end mt-8">
+          <button
+            onClick={handleClearData}
+            className="px-6 py-3 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+          >
+            Clear All Data
+          </button>
+          <button
+            onClick={handleSubmit}
+            disabled={isSubmitDisabled}
+            className={`px-8 py-3 rounded transition-colors flex items-center gap-2
+              ${isSubmitDisabled 
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                : 'bg-green-500 text-white hover:bg-green-600'}`}
+          >
+            {isSubmitting ? (
+              <>
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Submitting...
+              </>
+            ) : (
+              'Submit'
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
