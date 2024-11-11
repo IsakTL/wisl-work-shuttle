@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 interface Employee {
   id: string;
   name: string;
@@ -32,10 +33,14 @@ const SHIFT_CONSTRAINTS = {
 };
 
 const MOCK_EMPLOYEES: Employee[] = [
-  { id: '1', name: 'Joshua Woods', employeeId: 'EMP001' },
-  { id: '2', name: 'Isak Larsson', employeeId: 'EMP002' },
+  { id: '1', name: 'Jonathan Redford', employeeId: 'EMP001' },
+  { id: '2', name: 'Mary Knight', employeeId: 'EMP002' },
   { id: '3', name: 'River Stephenson', employeeId: 'EMP003' },
-  { id: '4', name: 'Sameer Idris', employeeId: 'EMP004' }
+  { id: '4', name: 'Glenn Powell', employeeId: 'EMP004' },
+  { id: '5', name: 'Glen Davis', employeeId: 'EMP005' },
+  { id: '6', name: 'Isak Larsson', employeeId: 'EMP006' },
+  { id: '7', name: 'Sameer Idris', employeeId: 'EMP007' },
+  { id: '8', name: 'Joshua Woods', employeeId: 'EMP008' }
 ];
 
 const formatTime = (time: string): string => {
@@ -61,20 +66,21 @@ export const ShiftPage: React.FC = () => {
 
   const handleShiftSelect = (shiftType: ShiftType) => {
     setSelectedShiftType(shiftType);
+    // move to submit button
     if (shiftType !== 'no-shift') {
       setNoShiftReason('');
     }
   };
-
+  
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
   };
-
+  
   const handleEmployeeSelect = (employeeId: string) => {
     const employee = employees.find(emp => emp.id === employeeId);
     setSelectedEmployee(employee || null);
   };
-
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedEmployee && selectedDate && selectedShiftType) {
@@ -87,6 +93,7 @@ export const ShiftPage: React.FC = () => {
           : { times: SHIFT_CONSTRAINTS[selectedShiftType] }
         )
       };
+      localStorage.setItem('storedShiftData', JSON.stringify(shiftData))
       console.log('Selected shift:', shiftData);
       navigate('/confirmation', { state: { shiftData } });
     }
