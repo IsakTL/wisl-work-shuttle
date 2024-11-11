@@ -21,14 +21,14 @@ const MapImage = () => {
 
 
     const getImage = async () => {
-        const mapImage = await fetch (`https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${pickupLon},${pickupLat},15.25,0/400x400?access_token=${import.meta.env.VITE_MAPBOX_PUBLIC_TOKEN}`);
+        const mapImage = await fetch (`https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${pickupLon},${pickupLat},15.25,0/400x400?access_token=${import.meta.env.VITE_MAPBOX_PUBLIC_TOKEN}`, {mode: 'no-cors'});
         // console.log(mapImage);
         // const mapURL = await mapImage.json();
         console.log(mapImage);
         setMapSrc(mapImage.url);
     }
 
-    useEffect(()=> {getImage()}, []);
+    useEffect(()=> {getImage}, []);
 
     return (
         <div>
