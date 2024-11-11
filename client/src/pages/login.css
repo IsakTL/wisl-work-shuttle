@@ -1,0 +1,27 @@
+.form-container {
+  background-color: grey;
+}
+body {
+  background-color: grey;
+  border: 60px;
+}
+h1,
+label,
+button {
+  color: goldenrod;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pic {
+  position: relative;
+  max-width: 660px;
+  background-color: grey;
+  mix-blend-mode: darken;
+  border-radius: 30px;
+  border-top-left-radius: 0;
+}
+.foot {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 15px;
+}
