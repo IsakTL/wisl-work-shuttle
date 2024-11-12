@@ -14,8 +14,7 @@ const WeatherReport = () => {
     const forecast = await fetch(
       `https://api.openweathermap.org?lon=${weatherLon}&lat=${weatherLat}&appid=${
         import.meta.env.WEATHER_API_KEY
-      }`,
-      { mode: "no-cors" }
+      }`
     );
     console.log(forecast.json());
     const fc = await forecast.json();
@@ -34,7 +33,7 @@ const savedShiftData = JSON.parse(localStorage.getItem('storedShiftData') || '{}
         <h5>Scheduled for: {savedShiftData.date}</h5>
       <p>Your shift starts at {savedShiftData.times.startTime} in the {savedShiftData.type}. You should arrive at the pickup location at least 30 minutes before your shift.</p>
       </div>
-      <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larrson,</footer>
+      <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larsson</footer>
     </>
   );
 };

@@ -7,11 +7,11 @@ export default function WeatherPage() {
     return (
         <>
             <NavBar></NavBar>
-            
-            
+            <h1>Welcome</h1>
+            <div>Weather:</div>
             <div><WeatherReport/></div>
+            <div>Your pickup point:</div>
             <MapImage />
-            
         </>
     )
 }
