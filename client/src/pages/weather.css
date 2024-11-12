@@ -1,0 +1,44 @@
+ @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap'); 
+ 
+ .shiftCard {
+    max-width: 200px;
+    border-style: groove;
+    padding: 7px;
+    border-color: navy goldenrod;
+    border-width: 3px;
+}
+#weatherMessage {
+    font-family: caveat;
+    color: rgb(208, 206, 203);
+}
+h5 {
+    color: goldenrod;
+}
+.foot {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 20px;
+  }
+  
+   
+
