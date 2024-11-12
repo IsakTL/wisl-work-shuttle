@@ -9,9 +9,10 @@ export default function WeatherPage() {
             <NavBar></NavBar>
             
             
-            <div><WeatherReport/></div>
-            <MapImage />
-            
+            <div>
+            <WeatherReport/>
+            <MapImage/>
+            </div>
         </>
     )
 }
