@@ -217,7 +217,7 @@ https://opensource.org/license/MIT
 
 [Sameer Idris](sameeridris610@gmail.com) - sameeridris610@gmail.com
 
-[Joshua Woods](https://maryelenius.com/) - contributor.one@email.com
+[Joshua Woods](jw434846@gmail.com) - jw434846@gmail.com
 
 Project Links:
 
