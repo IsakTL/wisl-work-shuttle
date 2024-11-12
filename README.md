@@ -67,6 +67,19 @@ WISL your way to work!
   </ol>
 </details>
 
+
+<!-- USER STORY -->
+
+## User Story
+
+As a user 
+I would like to carpool to work via shuttle
+So that I can save money commuting to work
+As a user
+I would like to know how long it would take me to get a pickup point
+So that I make it to work on time
+
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
