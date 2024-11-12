@@ -76,7 +76,7 @@ const Login = () => {
         </div>
       </form>
       <img  src='https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' className='pic'></img>
-      <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larrson,</footer>
+      <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larsson</footer>
     </div>
     
   );
