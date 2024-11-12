@@ -138,6 +138,7 @@ export const ShiftPage: React.FC = () => {
         <h1 className="text-2xl font-bold mb-6">Select Your Shift</h1>
 
         {/* Employee Selection */}
+        <div id='shiftForm'>
         <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
           <h2 className="text-lg font-semibold mb-2">Select Employee</h2>
           <div className="space-y-4">
@@ -293,6 +294,7 @@ export const ShiftPage: React.FC = () => {
             </div>
           </div>
         </div>
+        </div>
 
         {/* Selection Summary */}
         {selectedEmployee && selectedShiftType && selectedDate && (
@@ -319,6 +321,7 @@ export const ShiftPage: React.FC = () => {
               </div>
             </div>
           </div>
+            
         )}
 
         {/* Action Buttons */}

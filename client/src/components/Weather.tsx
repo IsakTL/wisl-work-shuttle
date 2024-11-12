@@ -29,11 +29,12 @@ const savedShiftData = JSON.parse(localStorage.getItem('storedShiftData') || '{}
   return (
     <>
     <h1>Welcome {savedShiftData.employee.name}</h1>
-      <p>Its rainy today. Don't forget your umbrella!</p>
-      <div>
+      <p id='weatherMessage'>Its rainy today. Don't forget your umbrella!</p>
+      <div className='shiftCard'>
         <h5>Scheduled for: {savedShiftData.date}</h5>
       <p>Your shift starts at {savedShiftData.times.startTime} in the {savedShiftData.type}. You should arrive at the pickup location at least 30 minutes before your shift.</p>
       </div>
+      <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larrson,</footer>
     </>
   );
 };
