@@ -7,8 +7,9 @@ export default function WeatherPage() {
         <>
             <NavBar></NavBar>
             <h1>Welcome</h1>
+            <div>Weather:</div>
             <WeatherReport/>
-            <div>weather</div>
+            <div>Your pickup point:</div>
             <MapImage />
             
         </>

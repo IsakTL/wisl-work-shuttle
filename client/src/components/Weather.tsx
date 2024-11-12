@@ -14,8 +14,7 @@ const WeatherReport = () => {
     const forecast = await fetch(
       `https://api.openweathermap.org?lon=${weatherLon}&lat=${weatherLat}&appid=${
         import.meta.env.WEATHER_API_KEY
-      }`,
-      { mode: "no-cors" }
+      }`
     );
     console.log(forecast.json());
     const fc = await forecast.json();
@@ -25,7 +24,8 @@ const WeatherReport = () => {
 
   return (
     <>
-      <p>Its {weather} out</p>
+      <p>It's chilly out!</p> 
+      {/* Replace chilly with weather conditions */}
     </>
   );
 };
