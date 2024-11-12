@@ -33,12 +33,12 @@ WISL your way to work
   </a>
 
 <!-- TODO: Edit App name -->
-  <h3 align="center">Project 2 App Name</h3>
+  <h3 align="center">WISL Work Shuttle</h3>
 
   <p align="center">
   <!-- TODO: Edit App description -->
-    Project 2 Description will go here    <br />
-    <a href="https://github.com/404pandas/project-2-setup-guide"><strong>Explore the docs »</strong></a>
+    WISL your way to work and forget the struggles of personal transportation.   <br />
+    <a href="https://github.com/IsakTL/wisl-work-shuttle"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- TODO: Edit deployment link -->
@@ -177,9 +177,9 @@ npm run start
 
 #### Future Development
 
-- [ ] Add Lines of future development ideas here
-- [ ] Add Lines of future development ideas here
-- [ ] Add Lines of future development ideas here
+- [ ] Adding an interface for employers to see which employees are riding the shuttle on certain days and to add/remove employees from the database.
+- [ ] Notifications/Reminders so employees aren't late to the pickup location
+- [ ] Adding multiple warehouses and multiple pickup/dropoff points per warehouse.
 
 See the [open issues](https://github.com/404pandas/project-2-setup-guide/issues) for a full list of proposed features (and known issues).
 
@@ -203,6 +203,7 @@ Don't forget to give the project a star! Thanks again!
 ## License
 
 This project is licensed under the MIT license.
+https://opensource.org/license/MIT 
 
 <!-- CONTACT -->
 
@@ -210,17 +211,17 @@ This project is licensed under the MIT license.
 
 <!-- TODO: Add your name, portfolio link, and email if you would like here -->
 
-[Mary Elenius](https://maryelenius.com/) - mary.panda.jackson@gmail.com
+[River Stephenson](riverstephenson06@outlook.com) - mary.panda.jackson@gmail.com
 
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
+[Isak Larsson](isaktlarsson99@gmail.com) - contributor.one@email.com
 
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
+[Sameer Idris](https://maryelenius.com/) - contributor.one@email.com
 
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
+[Joshua Woods](https://maryelenius.com/) - contributor.one@email.com
 
 Project Links:
 
-[Github Repository](https://github.com/404pandas/project-2-setup-guide)
+[Github Repository](https://github.com/IsakTL/wisl-work-shuttle)
 
 <!-- TODO: add your deployment link here -->
 
