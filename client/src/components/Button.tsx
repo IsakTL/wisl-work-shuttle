@@ -9,10 +9,17 @@ const ApiSearchButton: React.FC<ButtonProps> = ({ onResults }) => {
         onResults(data);
     };
 
+    const
+    pickupLon = -93.26785,
+    pickupLat = 44.98439,
+    dropoffLon = -93.08844,
+    dropoffLat = 44.94, //Should pull from Sequelize
+    tempToken = 'pk.eyJ1IjoiaXNha3RsIiwiYSI6ImNtMzRzb28wZTAzYzEyam9zYzk0c2gzZjQifQ.Ogf2AltV9Yv5sCjAbF_wkg'; //To be removed upon successfully implementing env variables
+
     const searchAPI = async () => {
         try {
             const response = await fetch(
-                `https://api.mapbox.com/directions/v5/mapbox/cycling/-84.518641,39.134270;-84.512023,39.102779?geometries=geojson&access_token=${process.env.VITE_}`
+                `https://api.mapbox.com/directions/v5/mapbox/driving-traffic/${pickupLon},${pickupLat};${dropoffLon},${dropoffLat}?geometries=polyline&access_token=${tempToken}`
             );
             const data = await response.json();
             if (!response.ok) {
