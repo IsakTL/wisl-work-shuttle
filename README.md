@@ -211,11 +211,11 @@ https://opensource.org/license/MIT
 
 <!-- TODO: Add your name, portfolio link, and email if you would like here -->
 
-[River Stephenson](riverstephenson06@outlook.com) - mary.panda.jackson@gmail.com
+[River Stephenson](riverstephenson06@outlook.com) - riverstephenson06@outlook.com
 
-[Isak Larsson](isaktlarsson99@gmail.com) - contributor.one@email.com
+[Isak Larsson](isaktlarsson99@gmail.com) - isaktlarsson99@gmail.com
 
-[Sameer Idris](https://maryelenius.com/) - contributor.one@email.com
+[Sameer Idris](sameeridris610@gmail.com) - sameeridris610@gmail.com
 
 [Joshua Woods](https://maryelenius.com/) - contributor.one@email.com
 
