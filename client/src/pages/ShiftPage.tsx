@@ -100,6 +100,7 @@ export const ShiftPage: React.FC = () => {
         };
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
+        localStorage.setItem('storedShiftData', JSON.stringify(shiftData));
         console.log('Shift data submitted:', shiftData);
         // Change this line from '/confirmation' to '/weather
         navigate('/weather', { state: { shiftData } }); // <-- This is the only line you need to change
