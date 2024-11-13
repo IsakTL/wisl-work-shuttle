@@ -27,7 +27,9 @@ const WeatherReport = () => {
       <p id='weatherMessage'>{weather} It's rainy today. Don't forget your umbrella!</p>
       <div className='shiftCard'>
         <h5>Scheduled for: {savedShiftData.date}</h5>
-        <p>Your shift starts at {savedShiftData.times.startTime} in the {savedShiftData.type}. You should arrive at the pickup location at least 30 minutes before your shift.</p>
+
+      <p>Your shift starts at {savedShiftData.times.startTime} in the {savedShiftData.type}. You should arrive at the pickup location at least 30 minutes before your shift. You will be returned to the same location at approximately {savedShiftData.times.dropoffTime}, after your shifts' end.</p>
+ main
       </div>
       <footer className='foot'>Crafted with Care, sincerely, Woods, Idris, Stephenson, Larsson</footer>
     </>
