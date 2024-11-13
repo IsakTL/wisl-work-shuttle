@@ -1,15 +1,7 @@
 # WISL Work Shuttle
 
-WISL your way to work
+WISL your way to work!
 
-
-<!-- All information below this line is unedited from provided template -->
-
-
-<!-- For assistance using this README for your project, reach out to your instructinoal staff. -->
-
-<!-- TODO: Highlight "404pandas" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Username and type your Username in its place -->
-<!-- TODO: Highlight "project-2-setup-guide" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Repository name and type your repostitory name in its place -->
 
 <div align="center">
 
@@ -26,27 +18,26 @@ WISL your way to work
 
 <!-- PROJECT LOGO -->
 
+<!--
 <div align="center">
   <a href="https://github.com/404pandas/project-2-setup-guide">
   <!-- TODO: Correct this file path to a logo if you would like one; otherwise, delete this a href -->
     <img src="./public/images/" alt="Logo" width="80" height="80">
   </a>
+-->
 
-<!-- TODO: Edit App name -->
   <h3 align="center">WISL Work Shuttle</h3>
 
   <p align="center">
-  <!-- TODO: Edit App description -->
     WISL your way to work and forget the struggles of personal transportation.   <br />
     <a href="https://github.com/IsakTL/wisl-work-shuttle"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- TODO: Edit deployment link -->
-    <a href="https://github.com/404pandas/project-2-setup-guide">View Demo(Coming Soon)</a>
+    <a href="https://wisl-work-shuttle.onrender.com">View Demo</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Report Bug</a>
+    <a href="https://github.com/IsakTL/wisl-work-shuttle/issues">Report Bug</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Request Feature</a>
+    <a href="https://github.com/IsakTL/wisl-work-shuttle/issues">Request Feature</a>
 
   </p>
 </div>
@@ -76,6 +67,19 @@ WISL your way to work
   </ol>
 </details>
 
+
+<!-- USER STORY -->
+
+## User Story
+
+As a user 
+I would like to carpool to work via shuttle
+So that I can save money commuting to work
+As a user
+I would like to know how long it would take me to get a pickup point
+So that I make it to work on time
+
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -86,7 +90,7 @@ WISL your way to work
 <!-- Add video demos using the following format: -->
 <!-- ![Video alt description](directPathOfVideos) -->
 
-This project was built using Node, Express, Handlebars, PostgreSQL, and Sequelize.
+This project was built using Node, React, Express, PostgreSQL, and Sequelize.
 
 ### Built With
 
@@ -117,11 +121,11 @@ This project was built using Node, Express, Handlebars, PostgreSQL, and Sequeliz
 
 ## Getting Started
 
-Once completely built, this application will function as a deployed app on Render.
+This app is [deployed on Render](https://wisl-work-shuttle.onrender.com), as well as being able to be installed locally.
 
 ### Local Installation / Testing
 
-1. Clone the rep
+1. Clone the repo
 
 ```
 git clone https://github.com/404pandas/project-2-setup-guide.git
@@ -159,20 +163,20 @@ npm run start
 
 <!-- This is a nested check-box that displays a nice checked or unchecked list on your Github repo to show your visitor's a quick road map! -->
 
-- [ ] Front End
+- [x] Front End
 
-  - [ ] User Auth
-  - [ ] User Profile Page
+  - [x] User Auth
+  - [x] User Profile Page
     - [ ] Routing
-    - [ ] Styling
-  - [ ] Landing Page
+    - [x] Styling
+  - [x] Landing Page
     - [ ] Routing
-    - [ ] Styling
+    - [x] Styling
 
-- [ ] Back End
-  - [ ] User Auth
-  - [ ] Models
-  - [ ] Seeds
+- [x] Back End
+  - [x] User Auth
+  - [x] Models
+  - [x] Seeds
   - [ ] api Routing
 
 #### Future Development
@@ -190,7 +194,7 @@ See the [open issues](https://github.com/404pandas/project-2-setup-guide/issues)
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Thank you!
 
 1. Fork the Project
 2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
@@ -225,12 +229,14 @@ Project Links:
 
 <!-- TODO: add your deployment link here -->
 
-[Deployment- coming soon](https://google.com)
+[Deployment via Render](https://wisl-work-shuttle.onrender.com)
 
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
 
 <!-- TODO: Add any acknowledgements you would like here -->
-
+Joshua Woods - The GOAT
+Sameer Idris - Also the GOAT
+River Stephenson - Somehow, also the GOAT
 Example MVC folder structure provided by 2U Instructional staff [Mary Elenius](https://maryelenius.com/)
