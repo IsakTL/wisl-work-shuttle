@@ -1,11 +1,14 @@
  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap'); 
  
  .shiftCard {
-    max-width: 200px;
+    max-width: 1200px;
     border-style: groove;
     padding: 7px;
     border-color: navy goldenrod;
     border-width: 3px;
+    position: static;
+   margin-bottom: 20px;
+    
 }
 #weatherMessage {
     font-family: caveat;
